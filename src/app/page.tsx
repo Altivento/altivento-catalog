@@ -7,22 +7,25 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="print-bg bg-sand p-8 rounded-lg mb-10">
-        <h1 className="text-3xl md:text-4xl font-display font-bold text-forest">Catálogo de Productos y Servicios</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-forest max-w-4xl mx-auto md:mx-0">Catálogo de Productos y Servicios</h1>
         
         <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-3">Quiénes Somos</h2>
-          <p className="text-text">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-3">Quiénes Somos</h2>
+          <p className="text-text leading-relaxed max-w-3xl">
             En Altivento, llevamos más de 30 años creando estructuras memorables para eventos sociales y corporativos.
+          </p>
+          <p className='text-text leading-relaxed max-w-3xl'>
             Nos especializamos en la renta e instalación de carpas, pistas de baile, entarimados, templetes, graderías y plantas 
             de luz, ofreciendo soluciones a la medida con compromiso, experiencia y una capacidad única para adaptarnos a los 
-            retos de cada montaje.Nuestra prioridad es que cada evento tenga una base sólida y espectacular.
+            retos de cada montaje.
           </p>
+          <p className="text-text leading-relaxed max-w-3xl">Nuestra prioridad es que cada evento tenga una base sólida y espectacular.</p>
         </div>
       </div>
 
       <CatalogSection
         title="Carpas"
-        description="Nuestras carpas están disponibles en anchos de 10, 15 y 20 metros de boca, con largos en incrementos de 5 metros. La altura estándar es de 4 o 5 metros. Nota: Las carpas de 20 metros de ancho tienen un costo adicional del 15% sobre el precio base."
+        description="Nuestras carpas están disponibles en anchos de 10, 15 y 20 metros de boca, con largos en incrementos de 5 metros. Nota: Las carpas de 20 metros de ancho tienen un costo adicional del 15% sobre el precio base."
       >
         <ProductCard
           title="Carpa con plafón liso blanco"
@@ -257,7 +260,7 @@ export default function Home() {
       <div className="page-break-before"></div>
 
       <section className="py-8 md:py-12 print-bg">
-        <h2 className="text-2xl md:text-3xl font-display font-medium text-forest mb-6">Condiciones de Renta</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-forest mb-6">Condiciones de Renta</h2>
         
         <div className="bg-cream p-8 rounded-lg shadow-md print-bg">
           <div className="max-w-3xl mx-auto">
@@ -277,11 +280,11 @@ export default function Home() {
       </section>
 
       <div className="mt-12 mb-6 text-center print-bg p-6 rounded-lg bg-peach/20">
-        <h2 className="text-xl font-semibold mb-2">¿Necesitas más información?</h2>
-        <p className="text-text">Contáctanos para un presupuesto personalizado.</p>
-        <div className="mt-4 font-medium">
-          <p>Email: hola@altivento.mx</p>
-          <p>Teléfono: +52 (442) 190-0928</p>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2">¿Necesitas más información?</h2>
+        <p className="text-text leading-relaxed mx-auto max-w-xl">Contáctanos para un presupuesto personalizado.</p>
+        <div className="mt-4 font-medium space-y-1">
+          <p className="leading-relaxed">Email: hola@altivento.mx</p>
+          <p className="leading-relaxed">Teléfono: +52 (442) 190-0928</p>
         </div>
       </div>
 

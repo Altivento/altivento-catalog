@@ -38,6 +38,7 @@
 body {
   @apply bg-cream text-text;
   font-family: var(--font-sans);
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4 {
@@ -46,11 +47,19 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  @apply text-3xl md:text-4xl mb-6 text-forest;
+  @apply text-4xl md:text-5xl lg:text-6xl mb-6 text-forest leading-tight font-bold;
 }
 
 h2 {
-  @apply text-2xl mb-4 text-teal;
+  @apply text-3xl md:text-4xl mb-4 text-teal leading-tight;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl mb-3 leading-tight;
+}
+
+p {
+  @apply mb-3 hyphens-auto;
 }
 
 /* Container */

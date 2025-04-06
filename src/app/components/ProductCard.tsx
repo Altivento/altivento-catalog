@@ -25,7 +25,7 @@ interface DetailItem {
           </div>
         )}
         <div className="p-6">
-          <h3 className="text-xl font-display font-medium text-teal mb-3">{title}</h3>
+          <h3 className="text-2xl md:text-3xl font-display font-medium text-teal mb-3">{title}</h3>
           <div className="space-y-3">
             {details.map((detail, index) => (
               <div key={index} className="flex items-start">
@@ -36,16 +36,16 @@ interface DetailItem {
                   {detail.items ? (
                     <ul className="mt-1 ml-5 list-disc space-y-1">
                       {detail.items.map((item, idx) => (
-                        <li key={idx} className="text-text">{item}</li>
+                        <li key={idx} className="text-text leading-relaxed">{item}</li>
                       ))}
                     </ul>
                   ) : detail.text && (
-                    <p className="text-text">{detail.text}</p>
+                    <p className="text-text leading-relaxed">{detail.text}</p>
                   )}
                 </div>
                 {detail.price && (
-                  <div className="ml-4 text-right">
-                    <span className="font-semibold text-lg text-secondary">{detail.price}</span>
+                  <div className="ml-4 text-right whitespace-nowrap">
+                    <span className="font-semibold text-xl md:text-2xl text-secondary">{detail.price}</span>
                   </div>
                 )}
               </div>

@@ -30,10 +30,10 @@ export default function RootLayout({
                 alt="Altivento Logo" 
                 className="h-12 md:h-16 print:h-10"
               />
-              <p className="mt-2 text-sm md:text-base opacity-80">Estructuras para eventos desde 1993</p>
+              <p className="mt-2 text-sm md:text-base opacity-80">Estructuras para eventos en Querétaro desde 1995</p>
             </div>
           </header>
-          <main className="flex-grow print:pt-16 print:pb-16">
+          <main className="flex-grow print:pt-16 print:pb-16 text-base md:text-lg">
             {children}
           </main>
           <footer className="bg-cream p-6 print:p-2 text-sm text-forest">
