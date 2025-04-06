@@ -94,7 +94,7 @@ export default function Home() {
           details={[
             { price: "$150/m²", text: "Acabado profesional de alta calidad" }
           ]}
-          imagePath="/api/placeholder/400/300"
+          imagePath="images/pista-laminada.jpg"
           imageAlt="Pista de piso laminado"
         />
         <ProductCard
