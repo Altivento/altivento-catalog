@@ -1,26 +1,155 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Define the styles for header and footer in print mode */
+@media print {
+  header {
+    box-shadow: 0 0 0 100vmax var(--color-forest);
+    clip-path: inset(0 -100vmax);
   }
+  
+  footer {
+    box-shadow: 0 0 0 100vmax var(--color-cream);
+    clip-path: inset(0 -100vmax);
+  }
+}@import "tailwindcss";
+
+@theme {
+  /* Color palette from provided image */
+  --color-peach: #EF9C82;      /* R=239 G=156 B=130 */
+  --color-cream: #F9EEE7;      /* R=249 G=238 B=231 */
+  --color-sand: #FFD9BE;       /* R=255 G=217 B=190 */
+  --color-forest: #123332;     /* R=18 G=51 B=50 */
+  --color-teal: #1D4241;       /* R=29 G=66 B=65 */
+  
+  /* Additional theme colors derived from the palette */
+  --color-primary: var(--color-forest);
+  --color-secondary: var(--color-peach);
+  --color-background: var(--color-cream);
+  --color-accent: var(--color-sand);
+  --color-text: #333333;
+  
+  /* Fonts */
+  --font-display: 'Boska', serif;
+  --font-sans: 'Switzer', sans-serif;
+  
+  /* Spacing */
+  --spacing: 0.25rem;
 }
 
+/* Base styles for both screen and print */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-cream text-text;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  @apply font-medium;
+}
+
+h1 {
+  @apply text-3xl md:text-4xl mb-6 text-forest;
+}
+
+h2 {
+  @apply text-2xl mb-4 text-teal;
+}
+
+/* Container */
+.container {
+  @apply mx-auto px-4 md:px-6;
+  max-width: 1200px;
+}
+
+/* Button styles */
+.btn {
+  @apply py-2 px-4 rounded transition-colors;
+}
+
+.btn-primary {
+  @apply bg-forest text-white hover:bg-teal;
+}
+
+/* Print-specific styles */
+@media print {
+  /* Set page layout */
+  @page {
+    size: A4;
+    margin: 2cm 1.5cm 2.5cm 1.5cm; /* Top, Right, Bottom, Left */
+  }
+  
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  /* Header and footer styling for print */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--color-forest) !important;
+    color: white !important;
+    padding: 0.5cm;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--color-cream) !important;
+    color: var(--color-forest) !important;
+    padding: 0.5cm;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Add padding to main content to avoid overlap with fixed header/footer */
+  main {
+    padding-top: 1.5cm;
+    padding-bottom: 1.5cm;
+  }
+  
+  /* Hide elements not needed in print */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Control page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+  }
+  
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Expand containers to full width */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Ensure backgrounds and colors print properly */
+  .print-bg {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
 }

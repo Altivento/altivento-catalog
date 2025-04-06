@@ -1,0 +1,57 @@
+interface DetailItem {
+    label?: string;
+    text?: string;
+    price?: string;
+    items?: string[];
+  }
+  
+  interface ProductCardProps {
+    title: string;
+    details: DetailItem[];
+    imagePath?: string;
+    imageAlt?: string;
+  }
+  
+  export default function ProductCard({ title, details, imagePath, imageAlt }: ProductCardProps) {
+    return (
+      <div className="avoid-break bg-cream rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 print-bg">
+        {imagePath && (
+          <div className="h-48 overflow-hidden">
+            <img 
+              src={imagePath} 
+              alt={imageAlt || `Imagen de ${title}`} 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+        <div className="p-6">
+          <h3 className="text-xl font-display font-medium text-teal mb-3">{title}</h3>
+          <div className="space-y-3">
+            {details.map((detail, index) => (
+              <div key={index} className="flex items-start">
+                <div className="flex-1">
+                  {detail.label && (
+                    <p className="font-medium text-forest">{detail.label}</p>
+                  )}
+                  {detail.items ? (
+                    <ul className="mt-1 ml-5 list-disc space-y-1">
+                      {detail.items.map((item, idx) => (
+                        <li key={idx} className="text-text">{item}</li>
+                      ))}
+                    </ul>
+                  ) : detail.text && (
+                    <p className="text-text">{detail.text}</p>
+                  )}
+                </div>
+                {detail.price && (
+                  <div className="ml-4 text-right">
+                    <span className="font-semibold text-lg text-secondary">{detail.price}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
