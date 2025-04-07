@@ -145,4 +145,19 @@ p {
     print-color-adjust: exact;
     color-adjust: exact;
   }
+  
+  /* Fix for product cards in print mode */
+  .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 1fr;
+  }
+  
+  /* Ensure all cards have the same height */
+  .grid > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    page-break-inside: avoid;
+  }
 }
