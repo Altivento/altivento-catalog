@@ -1,6 +1,5 @@
 import CatalogSection from './components/CatalogSection';
 import ProductCard from './components/ProductCard';
-import PrintButton from './components/PrintButton';
 import WhatsAppButton from './components/WhatsAppButton';
 
 export default function Home() {
@@ -295,8 +294,7 @@ export default function Home() {
           <p className="leading-relaxed">Teléfono: +52 (442) 190-0928</p>
         </div>
       </div>
-
-      <PrintButton />
+      
       <WhatsAppButton />
     </div>
   );

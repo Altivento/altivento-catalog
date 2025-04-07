@@ -78,6 +78,7 @@ p {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
+    font-size: 12pt;
   }
   
   /* Alternative print approach - headers and footers only on the first page */
@@ -146,18 +147,50 @@ p {
     color-adjust: exact;
   }
   
-  /* Fix for product cards in print mode */
+  /* Complete reset of grid for print */
   .grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-auto-rows: 1fr;
+    display: block !important;
   }
   
-  /* Ensure all cards have the same height */
-  .grid > div {
-    display: flex;
-    flex-direction: column;
+  /* SIMPLIFIED CARD STYLE FOR PRINT */
+  .product-card-print {
+    break-inside: avoid;
+    margin-bottom: 1.5cm;
+    padding: 0.5cm;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: none !important;
+    background-color: var(--color-cream) !important;
+  }
+  
+  /* Image container fixed size */
+  .product-card-print .image-container {
+    height: 4cm !important;
+    overflow: hidden;
+    margin-bottom: 0.5cm;
+  }
+  
+  .product-card-print .image-container img {
+    width: 100%;
     height: 100%;
-    page-break-inside: avoid;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Text formatting */
+  .product-card-print h3 {
+    font-size: 14pt !important;
+    margin-bottom: 0.3cm !important;
+  }
+  
+  .product-card-print p {
+    font-size: 11pt !important;
+    margin-bottom: 0.2cm !important;
+  }
+  
+  .product-card-print .price {
+    font-weight: bold;
+    font-size: 14pt !important;
+    color: var(--color-secondary) !important;
   }
 }
