@@ -1,6 +1,7 @@
 import CatalogSection from './components/CatalogSection';
 import ProductCard from './components/ProductCard';
 import PrintButton from './components/PrintButton';
+import WhatsAppButton from './components/WhatsAppButton';
 import PaletteView from './components/PaletteView';
 
 export default function Home() {
@@ -297,6 +298,7 @@ export default function Home() {
       </div>
 
       <PrintButton />
+      <WhatsAppButton />
     </div>
   );
 }
