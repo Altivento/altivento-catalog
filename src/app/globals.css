@@ -1,15 +1,4 @@
-/* Define the styles for header and footer in print mode */
-@media print {
-  header {
-    box-shadow: 0 0 0 100vmax var(--color-forest);
-    clip-path: inset(0 -100vmax);
-  }
-  
-  footer {
-    box-shadow: 0 0 0 100vmax var(--color-cream);
-    clip-path: inset(0 -100vmax);
-  }
-}@import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
   /* Color palette from provided image */
@@ -81,8 +70,8 @@ p {
 @media print {
   /* Set page layout */
   @page {
-    size: A4;
-    margin: 2cm 1.5cm 2.5cm 1.5cm; /* Top, Right, Bottom, Left */
+    size: Letter;
+    margin: 2cm 1.5cm; /* Top/bottom, left/right margins */
   }
   
   body {
@@ -91,43 +80,38 @@ p {
     color-adjust: exact;
   }
   
-  /* Header and footer styling for print */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: auto;
+  /* Alternative print approach - headers and footers only on the first page */
+  body > div > header, body > div > footer {
+    display: none;
+  }
+  
+  .print-header {
+    display: block;
     background-color: var(--color-forest) !important;
     color: white !important;
-    padding: 0.5cm;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 0.5cm 0;
+    margin-bottom: 1cm;
   }
   
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: auto;
+  .print-footer {
+    display: block;
     background-color: var(--color-cream) !important;
     color: var(--color-forest) !important;
-    padding: 0.5cm;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 0.5cm 0;
+    margin-top: 1cm;
   }
   
-  /* Add padding to main content to avoid overlap with fixed header/footer */
+  /* Remove standard header/footer from all pages except first */
+  .no-header-footer {
+    display: none;
+  }
+  
+  /* No need for extra padding since headers/footers are not fixed anymore */
   main {
-    padding-top: 1.5cm;
-    padding-bottom: 1.5cm;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   
   /* Hide elements not needed in print */
@@ -148,11 +132,11 @@ p {
     page-break-inside: avoid;
   }
   
-  /* Expand containers to full width */
+  /* Maintain consistent container width for print */
   .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    max-width: 7.5in !important; /* US Letter width minus margins */
+    padding: 0 0.5cm !important;
+    margin: 0 auto !important;
   }
   
   /* Ensure backgrounds and colors print properly */

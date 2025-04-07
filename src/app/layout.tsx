@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Catálogo de Productos y Servicios — Altivento',
+  title: 'Carpas y Pistas — Altivento',
   description: 'Estructuras memorables para eventos sociales y corporativos. Especialistas en carpas, pistas de baile, entarimados y más.',
 };
 
@@ -23,20 +23,19 @@ export default function RootLayout({
       </head>
       <body>
         <div className="min-h-screen flex flex-col">
-          <header className="bg-forest text-white p-6 print:p-2">
+          <header className="bg-forest text-white p-6 print:hidden">
             <div className="container mx-auto flex flex-col items-center">
               <img 
-                src="/logo.png" 
-                alt="Altivento Logo" 
-                className="h-12 md:h-16 print:h-10"
+              src="/logo.png" 
+              alt="Altivento Logo" 
+              className="h-24 md:h-32 print:h-24"
               />
-              <p className="mt-2 text-sm md:text-base opacity-80">Estructuras para eventos en Querétaro desde 1995</p>
             </div>
           </header>
-          <main className="flex-grow print:pt-16 print:pb-16 text-base md:text-lg">
+          <main className="flex-grow text-base md:text-lg">
             {children}
           </main>
-          <footer className="bg-cream p-6 print:p-2 text-sm text-forest">
+          <footer className="bg-cream p-6 print:hidden text-sm text-forest">
             <div className="container mx-auto text-center">
               <p>© {new Date().getFullYear()} Altivento. Todos los derechos reservados.</p>
               <p className="mt-1">Querétaro, México</p>

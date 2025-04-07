@@ -13,7 +13,7 @@ export default function CatalogSection({ title, description, children }: Catalog
       {description && (
         <p className="text-text mb-6 max-w-5xl mx-auto md:mx-0 leading-relaxed px-4 md:px-0">{description}</p>
       )}
-      <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-8">
         {children}
       </div>
     </section>

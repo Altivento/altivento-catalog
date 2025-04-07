@@ -14,17 +14,17 @@ interface DetailItem {
   
   export default function ProductCard({ title, details, imagePath, imageAlt }: ProductCardProps) {
     return (
-      <div className="avoid-break bg-cream rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 print-bg">
+      <div className="avoid-break bg-cream rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 print-bg print:max-w-md print:mx-auto">
         {imagePath && (
-          <div className="h-48 overflow-hidden">
+          <div className="h-48 md:h-64 print:h-48 overflow-hidden">
             <img 
               src={imagePath} 
               alt={imageAlt || `Imagen de ${title}`} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         )}
-        <div className="p-6">
+        <div className="p-6 print:p-4">
           <h3 className="text-2xl md:text-3xl font-display font-medium text-teal mb-3">{title}</h3>
           <div className="space-y-3">
             {details.map((detail, index) => (

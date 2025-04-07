@@ -6,6 +6,14 @@ import PaletteView from './components/PaletteView';
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
+      <div className="hidden print:block print-header mb-8">
+        <img 
+          src="/logo.png" 
+          alt="Altivento Logo" 
+          className="h-16 mx-auto"
+        />
+      </div>
+      
       <div className="print-bg bg-sand p-8 rounded-lg mb-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-forest max-w-4xl mx-auto md:mx-0">Catálogo de Productos y Servicios</h1>
         
@@ -289,7 +297,6 @@ export default function Home() {
       </div>
 
       <PrintButton />
-      <PaletteView />
     </div>
   );
 }
